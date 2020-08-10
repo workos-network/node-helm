@@ -86,7 +86,8 @@ module.exports = class Helm {
   }
 
   getAll(options, done) {
-    let command = ["get all"];
+    let command = ["get"];
+    command.push("all");
     if (options.releaseName == null) {
       throw new Error("Missing parameter 'releaseName'");
     }
@@ -104,7 +105,8 @@ module.exports = class Helm {
     this.executeCommandByArguments(options, command, done);
   }
   getManifest(options, done) {
-    let command = ["get manifest"];
+    let command = ["get"];
+    command.push("manifest");
     if (options.releaseName == null) {
       throw new Error("Missing parameter 'releaseName'");
     }
