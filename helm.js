@@ -96,7 +96,8 @@ module.exports = class Helm {
     this.executeCommandByArguments(options, command, done);
   }
   getHooks(options, done) {
-    let command = ["get hooks"];
+    let command = ["get"];
+    command.push("hooks");
     if (options.releaseName == null) {
       throw new Error("Missing parameter 'releaseName'");
     }
@@ -115,7 +116,8 @@ module.exports = class Helm {
     this.executeCommandByArguments(options, command, done);
   }
   getNotes(options, done) {
-    let command = ["get notes"];
+    let command = ["get"];
+    command.push("notes");
     if (options.releaseName == null) {
       throw new Error("Missing parameter 'releaseName'");
     }
@@ -124,7 +126,7 @@ module.exports = class Helm {
     this.executeCommandByArguments(options, command, done);
   }
   getValues(options, done) {
-    let command = ["get values"];
+    let command = ["get", "values"];
     if (options.releaseName == null) {
       throw new Error("Missing parameter 'releaseName'");
     }
