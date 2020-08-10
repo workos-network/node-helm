@@ -30,13 +30,7 @@ module.exports = class Helm {
     if (options.namespace) {
       command.push(options.namespace);
     }
-    if (options.values) {
-      command.push(options.namespace);
-      const values = Object.values(options.values).map(
-        (key) => `${key}=${options.values[key]}`
-      );
-      values.forEach((k) => command.push(`--set-string ${k}`));
-    }
+
     if (options.version) {
       command.push("--version");
       command.push(options.version);
